@@ -1,6 +1,6 @@
 import axios from 'axios';
 import queryString from 'query-string';
-const baseURL = "http://localhost:4000/api/v1/"
+const baseURL = "https://api.tezzkor.com/api/v1/"
 
 const multipartPrivateClient = axios.create({
    baseURL,
