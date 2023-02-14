@@ -66,7 +66,7 @@ const District = () => {
                   <h1 className='text-center'>{district && district.name} passporti</h1>
                   <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
                   {loading ? <Loader/> : (
-                        <Viewer fileUrl={district && `http://localhost:4000${district.file}`} />
+                        <Viewer fileUrl={district && `https://api.tezzkor.com${district.file}`} />
                      )}
                   </Worker>
                </div>

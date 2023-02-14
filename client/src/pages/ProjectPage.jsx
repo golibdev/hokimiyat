@@ -39,7 +39,7 @@ const ProjectPage = () => {
                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
                   {loading ? <Loader/> : (
                      <Viewer 
-                        fileUrl={project && `http://localhost:4000${project.file}`}
+                        fileUrl={project && `https://api.tezzkor.com${project.file}`}
                         defaultScale={SpecialZoomLevel.PageWidth}
                      />
                   )}
