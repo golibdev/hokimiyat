@@ -14,9 +14,8 @@ html {
    padding: 0;
 }
 
-#district .rpv-core__page-layer,
-#district .rpv-core__inner-page {
-   height: 600px !important;
+#district .rpv-core__inner-page:not(:first-child) {
+   transform: translateY(600px) !important;
 }
 
 .bg {

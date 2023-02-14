@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-pdf-viewer/core": "^3.11.0",
+    "@react-pdf-viewer/default-layout": "^3.11.0",
+    "@react-pdf-viewer/scroll-mode": "^3.11.0",
     "axios": "^1.3.2",
     "dayjs": "^1.11.7",
     "pdfjs-dist": "^3.3.122",

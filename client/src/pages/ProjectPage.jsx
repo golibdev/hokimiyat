@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { Viewer, Worker, SpecialZoomLevel } from '@react-pdf-viewer/core'
+import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import projectApi from '../api/modules/project.api';
@@ -39,8 +39,7 @@ const ProjectPage = () => {
                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
                   {loading ? <Loader/> : (
                      <Viewer 
-                        fileUrl={project && `https://api.tezzkor.com${project.file}`}
-                        defaultScale={SpecialZoomLevel.PageWidth}
+                        fileUrl={project && project.file && `https://api.tezzkor.com${project.file}`}
                      />
                   )}
                </Worker>

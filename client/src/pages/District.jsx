@@ -6,8 +6,11 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { back } from '../utils/back';
 import districtApi from '../api/modules/district.api';
 import { Viewer, Worker } from '@react-pdf-viewer/core'
+import { scrollModePlugin } from '@react-pdf-viewer/scroll-mode'
+import '@react-pdf-viewer/core/lib/styles/index.css';
  
 const District = () => {
+   const scrollModePluginInstance = scrollModePlugin();
    const { districtId } = useParams()
    const [branches, setBranches] = useState([]);
    const [district, setDistrict] = useState();
@@ -54,7 +57,7 @@ const District = () => {
                <div className="col-lg-6 align-items-center justify-content-center d-flex flex-column">
                   {branches.map(item => (
                      <div className="row mb-3 w-100">
-                        <div className="col-lg-12" key={item._id}>
+                        <div className="col-lg-12" key={item.name}>
                            <Link style={{ fontSize: '50px'}} to={`/district/${districtId}/branches/${item._id}`} id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold me-5 w-100">
                               <span>{item.name}</span>
                            </Link>
@@ -62,13 +65,20 @@ const District = () => {
                      </div>
                   ))}
                </div>
-               <div className="col-lg-6 mt-5" height={600}>
-                  <h1 className='text-center'>{district && district.name} passporti</h1>
-                  <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-                  {loading ? <Loader/> : (
-                        <Viewer fileUrl={district && `https://api.tezzkor.com${district.file}`} />
-                     )}
-                  </Worker>
+               <div className="col-lg-6 mt-5" style={{
+                  height: '600px'
+               }}>
+                     <h1 className='text-center'>{district && district.name} passporti</h1>
+                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+                     {loading ? <Loader/> : (
+                           <Viewer 
+                              fileUrl={district && district.file && `https://api.tezzkor.com${district.file}`} 
+                              plugins={[
+                                 scrollModePluginInstance
+                              ]}
+                           />
+                        )}
+                     </Worker>
                </div>
             </div>
 
