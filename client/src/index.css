@@ -1,0 +1,106 @@
+/* .btn-lg {
+   padding: 10px 30px !important;
+   
+   opacity: 1 !important;
+} */
+
+html {
+   box-sizing: border-box;
+ }
+ *,
+ *:before,
+ *:after {
+   box-sizing: inherit;
+   padding: 0;
+}
+
+#district .rpv-core__page-layer,
+#district .rpv-core__inner-page {
+   height: 600px !important;
+}
+
+.bg {
+   background: linear-gradient(
+         rgba(255, 255, 255, 0.9),
+         rgba(255, 255, 255, 0.9)
+      ),
+      url("/assets/uzbek-patter.png");
+}
+
+.btn-hover {
+   color: #fff !important;
+   border: 3px solid #3b36de;
+   background-image: -webkit-linear-gradient(
+      30deg,
+      #3b36de 50%,
+      transparent 50%
+   );
+   background-image: linear-gradient(30deg, #3b36de 50%, transparent 50%);
+   background-size: 3000px;
+   background-repeat: no-repeat;
+   background-position: 0%;
+   -webkit-transition: background 300ms ease-in-out;
+   transition: background 500ms ease-in-out;
+}
+
+.btn-font {
+   font-size: 40px;
+   min-width: 350px !important;
+}
+
+.btn-hover:hover {
+   border: 3px solid #3b36de !important;
+   background-position: 100%;
+   color: #3b36de !important;
+}
+
+.dropdown-menu {
+   width: 70%;
+   border: none !important;
+   transition: all .5s;
+}
+
+.dropdown-menu li {
+   padding: 10px 0;
+   margin-bottom: 20px;
+   border-radius: 5px !important;
+   cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+   background: none !important;
+}
+
+.dropdown-item {
+   color: #fff !important;
+   font-weight: bold;
+}
+
+.dropdown-item:hover {
+   background-color: #fff !important;
+}
+
+.dropdown-menu li:hover .dropdown-item {
+   color: #3b36de !important;
+}
+
+.main-btn {
+   position: absolute;
+   bottom: 20px;
+   left: 100px;
+   padding: 0 30px;
+   font-size: 30px;
+}
+
+.navbar-toggler {
+   border: none !important;
+}
+
+.navbar-toggler div {
+   width: 40px;
+   border: 1px solid #717171; 
+}
+
+.navbar-toggler div:not(:last-child) {
+   margin-bottom: 5px !important;
+}
