@@ -36,9 +36,9 @@ const Districts = () => {
                <div className="row g-4">
                   {districts.map(item => (
                      <div className="col-lg-3" key={item._id}>
-                        <Link style={{ fontSize: '40px'}} to={`/districts/${item._id}`} id="btn-hover" className="w-100 btn-hover btn btn-lg text-uppercase fw-bold">
+                        <a style={{ fontSize: '40px'}} href={`/districts/${item._id}`} id="btn-hover" className="w-100 btn-hover btn btn-lg text-uppercase fw-bold">
                            <span>{item.name}</span>
-                        </Link>
+                        </a>
                      </div>
                   ))}
                </div>
