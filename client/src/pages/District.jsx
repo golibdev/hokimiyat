@@ -18,14 +18,14 @@ const District = () => {
    const changePassportText = (e) => {
       e.preventDefault()
       if (text === 'pasporti') {
-         setText("export ko'rsatkichlari");
+         setText("ko'rsatkichlari");
          return
       }
    }
 
    const changeExportText = (e) => {
       e.preventDefault()
-      if (text == "export ko'rsatkichlari") {
+      if (text == "ko'rsatkichlari") {
          setText('pasporti')
       }
    }
