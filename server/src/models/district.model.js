@@ -10,6 +10,10 @@ const districtSchema = new Schema({
       type: String,
       required: true
    },
+   passportFile: {
+      type: String,
+      required: true
+   },
    projects: [{
       type: Schema.Types.ObjectId,
       ref: 'Project'

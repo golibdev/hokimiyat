@@ -60,6 +60,7 @@ const Dashboard = () => {
 
 const AddDistrict = ({ getAll }) => {
   const [name, setName] = useState('');
+  const [passportFile, setPassportFile] = useState('');
   const [file, setFile] = useState('')
 
   const add = async (e) => {
@@ -67,6 +68,7 @@ const AddDistrict = ({ getAll }) => {
     const params = new FormData();
     params.append('name', name)
     params.append('file', file)
+    params.append('passportFile', passportFile)
     const { response, err } = await districtApi.create(params);
 
     if (response) {
@@ -105,6 +107,15 @@ const AddDistrict = ({ getAll }) => {
               </div>
               <div className='mb-3'>
                 <label htmlFor="file" className='form-label'>Tuman passporti</label>
+                <input 
+                  type="file" 
+                  className='form-control'
+                  onChange={e => setPassportFile(e.target.files[0])} 
+                />
+              </div>
+
+              <div className='mb-3'>
+                <label htmlFor="file" className='form-label'>Tuman export ko'rsatkichi</label>
                 <input 
                   type="file" 
                   className='form-control'

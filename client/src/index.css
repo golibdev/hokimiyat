@@ -4,14 +4,20 @@
    opacity: 1 !important;
 } */
 
+@font-face {
+   font-family: 'Cambria';
+   src: url('/fonts/Cambria-Font.ttf');
+}
+
 html {
    box-sizing: border-box;
- }
+}
  *,
  *:before,
  *:after {
    box-sizing: inherit;
    padding: 0;
+   font-family: 'Cambria', sans-serif;
 }
 
 #district .rpv-core__inner-page:not(:first-child) {
@@ -103,3 +109,24 @@ html {
 .navbar-toggler div:not(:last-child) {
    margin-bottom: 5px !important;
 }
+
+/* .PDFDocument {
+   box-shadow: 0 0 8px rgba(0, 0, 0, .5);
+   overflow: hidden;
+}
+
+.react-pdf__Page__canvas {
+   margin: 0 auto;
+   width: 80% !important;
+   height: 100% !important;
+} */
+
+/* .PDFPageOne {
+   margin-bottom: 25px;
+}
+
+.PDFPage > canvas {
+   max-width: 100%;
+   margin: auto;
+   height: auto !important;
+} */

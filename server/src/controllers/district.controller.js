@@ -44,12 +44,13 @@ exports.create = asyncHandler(async (req, res) => {
    }
 
    const file = req.files.file
+   const passportFile = req.files.passportFile;
 
-   if(!file.mimetype.startsWith('application/pdf')) {
-      return res.status(400).json({ message: 'Faqat pdf file yuklang' })
+   if(!file.mimetype.startsWith('image') || !passportFile.mimetype.startsWith('image')) {
+      return res.status(400).json({ message: 'Faqat rasm yuklang' })
    }
 
-   if(file.size > process.env.MAX_FILE_SIZE) {
+   if(file.size > process.env.MAX_FILE_SIZE || passportFile.size > process.env.MAX_FILE_SIZE) {
       return res.status(400).json({ message: 'Fayl hajmi juda katta' })
    }
    
@@ -58,6 +59,12 @@ exports.create = asyncHandler(async (req, res) => {
    file.name = `district_${Date.now()}${path.parse(file.name).ext}`
 
    file.mv(`public/districtFile/${file.name}`, async (err) => {
+      if (err) {
+         return res.status(500).json({ message: 'Fayl yuklanmadi' })
+      }
+   })
+
+   passportFile.mv(`public/passportFile/${passportFile.name}`, async (err) => {
       if (err) {
          return res.status(500).json({ message: 'Fayl yuklanmadi' })
       }
@@ -76,7 +83,9 @@ exports.create = asyncHandler(async (req, res) => {
    }
 
    const newDistrict = await District.create({ 
-      name, file: `/districtFile/${file.name}`
+      name, 
+      file: `/districtFile/${file.name}`,
+      passportFile: `/passportFile/${passportFile.name}`
    });
 
    res.status(201).json({ 

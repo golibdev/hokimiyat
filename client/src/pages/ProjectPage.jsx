@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import projectApi from '../api/modules/project.api';
 import Loader from '../components/Loader';
 import '@react-pdf-viewer/core/lib/styles/index.css';
+import { serverUrl } from '../constants/serverUrl';
 
 const ProjectPage = () => {
    const {projectId} = useParams()
@@ -39,7 +40,7 @@ const ProjectPage = () => {
                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
                   {loading ? <Loader/> : (
                      <Viewer 
-                        fileUrl={project && project.file && `https://api.tezzkor.com${project.file}`}
+                        fileUrl={project && project.file && `${serverUrl}${project.file}`}
                      />
                   )}
                </Worker>
