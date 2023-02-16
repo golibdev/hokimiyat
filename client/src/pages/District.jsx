@@ -59,7 +59,7 @@ const District = () => {
          <Loader />
       </div>
    ) : (
-      <div className="align-items-center container" id="district">
+      <div className="align-items-center container" style={{ width: "75%" }} id="district">
          <div className="row">
             <div className="col-lg-12">
                <div className="d-flex align-items-center justify-content-between">
@@ -73,10 +73,10 @@ const District = () => {
                </div>
                <div class="tab-content" id="nav-tabContent">
                   <div className="tab-pane fade show active" id="nav-passport" role="tabpanel" aria-labelledby="nav-passport-tab" tabIndex="0">
-                     <img className="img-fluid mb-4 w-100" style={{ height: '70vh', objectFit: 'cover', borderRadius: '10px' }} src={`${serverUrl}${district && district.passportFile}`} alt="passport" />
+                     <img className="img-fluid mb-3 w-100" style={{ borderRadius: '10px' }} src={`${serverUrl}${district && district.passportFile}`} alt="passport" />
                   </div>
                   <div className="tab-pane fade" id="nav-export" role="tabpanel" aria-labelledby="nav-export-tab" tabIndex="0">
-                     <img className="img-fluid mb-4 w-100" style={{ height: '70vh', objectFit: 'cover', borderRadius: '10px' }} src={`${serverUrl}${district && district.file}`} alt="passport" />
+                     <img className="img-fluid mb-3 w-100" style={{ borderRadius: '10px' }} src={`${serverUrl}${district && district.file}`} alt="passport" />
                   </div>
                </div>
             </div>
@@ -85,10 +85,10 @@ const District = () => {
                   {branches.map((item) => (
                      <div className="col-lg-4" key={item._id}>
                         <Link
-                           style={{ fontSize: "30px", height: '100%' }}
+                           style={{ fontSize: "30px" }}
                            to={`/district/${districtId}/branches/${item._id}`}
                            id="btn-hover"
-                           className="btn-hover btn btn-lg text-uppercase fw-bold me-5 w-100 d-flex align-items-center justify-content-center"
+                           className="btn-hover btn text-uppercase fw-bold w-100 d-flex align-items-center justify-content-center"
                         >
                            <span>{item.name}</span>
                         </Link>
