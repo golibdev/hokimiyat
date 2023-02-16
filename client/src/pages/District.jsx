@@ -12,9 +12,17 @@ const District = () => {
    const [branches, setBranches] = useState([]);
    const [district, setDistrict] = useState();
    const [loading, setLoading] = useState(false);
-   const [numPages, setNumPages] = useState(null);
-   const [pageNumber, setPageNumber] = useState(1);
+   const [text, setText] = useState('pasporti')
    const navigate = useNavigate();
+
+   const changeText = (e) => {
+      e.preventDefault()
+      if (text == 'pasporti') {
+         setText("export ko'rsatkichlari");
+      } else {
+         setText("pasporti");
+      }
+   }
 
    const getDistrictData = async () => {
       const { response, err } = await districtApi.getOne(districtId);
@@ -42,10 +50,6 @@ const District = () => {
       }
    };
 
-   function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages);
-   }
-
    useEffect(() => {
       getBranches();
       getDistrictData();
@@ -64,11 +68,11 @@ const District = () => {
             <div className="col-lg-12">
                <div className="d-flex align-items-center justify-content-between">
                   <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                     <button className="btn btn-hover me-3 active" id="nav-passport-tab" data-bs-toggle="tab" data-bs-target="#nav-passport" type="button" role="tab" aria-controls="nav-passport" aria-selected="true">Pasport</button>
-                     <button className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Export</button>
+                     <button onClick={changeText} className="btn btn-hover me-3 active" id="nav-passport-tab" data-bs-toggle="tab" data-bs-target="#nav-passport" type="button" role="tab" aria-controls="nav-passport" aria-selected="true">Pasport</button>
+                     <button onClick={changeText} className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Export</button>
                   </div>
                   <h1 className="text-center">
-                     {district && district.name} passporti
+                     {district && district.name} {text}
                   </h1>
                </div>
                <div class="tab-content" id="nav-tabContent">
