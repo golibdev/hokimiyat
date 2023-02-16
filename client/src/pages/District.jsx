@@ -93,7 +93,7 @@ const District = () => {
             <div className="col-lg-12 align-items-center justify-content-center d-flex flex-column">
                <div className="row mb-3 w-100">
                   {branches.map((item) => (
-                     <div className="col-lg-4" key={item._id}>
+                     <div data-aos="zoom-in" data-aos-duration="1500" className="col-lg-4" key={item._id}>
                         <Link
                            style={{ fontSize: "30px" }}
                            to={`/district/${districtId}/branches/${item._id}`}

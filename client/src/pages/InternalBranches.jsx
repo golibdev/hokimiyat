@@ -36,7 +36,7 @@ const InternalBranches = () => {
          <div style={{ height: '100vh' }} className='d-flex align-items-center container'>
             <div className="row g-5">
                {internalBranches.map(item => (
-                  <div className="col-lg-12" key={item._id}>
+                  <div data-aos="zoom-in" data-aos-duration="1500" className="col-lg-12" key={item._id}>
                      <Link style={{ fontSize: '50px'}} to={`/branches/${branchId}/internal-branches/${item._id}`} id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold me-5 w-100">
                         <span>{item.name}</span>
                      </Link>

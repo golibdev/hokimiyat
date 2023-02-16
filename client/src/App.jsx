@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'
 import Footer from './components/Footer';
@@ -17,8 +18,12 @@ import Login from './pages/Login';
 import Project from './pages/Project';
 import ProjectBranchAnd from './pages/ProjectBranchAnd';
 import ProjectPage from './pages/ProjectPage';
+import Aos from 'aos'
 
 const App = () => {
+  useEffect(() => {
+    Aos.init()
+  }, [])
   return (
     <>
       <BrowserRouter>

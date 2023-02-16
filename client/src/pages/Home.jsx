@@ -11,7 +11,7 @@ const Home = () => {
       </div>
       <div style={{height: '60vh'}} className="d-flex align-items-center justify-content-center">
          <div className="container text-center">
-            <Link style={{ fontSize: '40px'}} to="/category" id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold">
+            <Link data-aos="zoom-in" data-aos-duration="1500" style={{ fontSize: '40px'}} to="/category" id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold">
                <span>Qashqadaryo viloyati <br/> investitsiya loyiha takliflari</span>
             </Link>
          </div>

@@ -35,7 +35,7 @@ const BranchesPage = () => {
          <div style={{ height: '100vh' }} className='d-flex align-items-center container'>
             <div className="row g-5">
                {branches.map(item => (
-                  <div className="col-lg-12" key={item._id}>
+                  <div className="col-lg-12" data-aos="zoom-in" data-aos-duration="1500" key={item._id}>
                      <Link style={{ fontSize: '50px'}} to={`/branches/${item._id}`} id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold me-5 w-100">
                         <span>{item.name}</span>
                      </Link>

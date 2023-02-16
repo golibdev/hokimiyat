@@ -32,10 +32,10 @@ const Districts = () => {
          <Loader/>
       </div> : (
          <>
-            <div className="container mt-5">
+            <div className="container mt-5 d-flex align-items-center" style={{ height: '90vh' }}>
                <div className="row g-4">
                   {districts.map(item => (
-                     <div className="col-lg-3" key={item._id}>
+                     <div className="col-lg-3" data-aos="zoom-in" data-aos-duration="1500" key={item._id}>
                         <a style={{ fontSize: '30px', height: '100%'}} href={`/districts/${item._id}`} id="btn-hover" className="w-100 btn-hover btn btn-lg text-uppercase fw-bold p-4 d-flex align-items-center justify-content-center">
                            <span>{item.name}</span>
                         </a>

@@ -26,7 +26,7 @@ const DistrictBranchInternalBranchFilter = () => {
          <h2 className='text-center fw-bold display-1 mb-3'>Loyihalar</h2>
          <div className="row g-4">
             {projects.map(item => (
-               <div className="col-12" key={item._id}>
+               <div data-aos="zoom-in" data-aos-duration="1500" className="col-12" key={item._id}>
                   <Link className='w-100 btn btn-hover btn-font'>
                      {item.name}
                   </Link>
