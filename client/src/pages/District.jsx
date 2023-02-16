@@ -75,7 +75,7 @@ const District = () => {
                <div className="d-flex align-items-center justify-content-between">
                   <div className="nav nav-tabs" id="nav-tab" role="tablist">
                      <button onClick={changeExportText} className="btn btn-hover me-3 active" id="nav-passport-tab" data-bs-toggle="tab" data-bs-target="#nav-passport" type="button" role="tab" aria-controls="nav-passport" aria-selected="true">Pasport</button>
-                     <button onClick={changePassportText} className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Export</button>
+                     <button onClick={changePassportText} className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Ko'rsatkichlar</button>
                   </div>
                   <h1 className="text-center">
                      {district && district.name} {text}
