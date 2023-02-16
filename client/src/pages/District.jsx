@@ -15,12 +15,18 @@ const District = () => {
    const [text, setText] = useState('pasporti')
    const navigate = useNavigate();
 
-   const changeText = (e) => {
+   const changePassportText = (e) => {
       e.preventDefault()
-      if (text == 'pasporti') {
+      if (text === 'pasporti') {
          setText("export ko'rsatkichlari");
-      } else {
-         setText("pasporti");
+         return
+      }
+   }
+
+   const changeExportText = (e) => {
+      e.preventDefault()
+      if (text == "export ko'rsatkichlari") {
+         setText('pasporti')
       }
    }
 
@@ -68,8 +74,8 @@ const District = () => {
             <div className="col-lg-12">
                <div className="d-flex align-items-center justify-content-between">
                   <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                     <button onClick={changeText} className="btn btn-hover me-3 active" id="nav-passport-tab" data-bs-toggle="tab" data-bs-target="#nav-passport" type="button" role="tab" aria-controls="nav-passport" aria-selected="true">Pasport</button>
-                     <button onClick={changeText} className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Export</button>
+                     <button onClick={changeExportText} className="btn btn-hover me-3 active" id="nav-passport-tab" data-bs-toggle="tab" data-bs-target="#nav-passport" type="button" role="tab" aria-controls="nav-passport" aria-selected="true">Pasport</button>
+                     <button onClick={changePassportText} className="btn btn-hover" id="nav-export-tab" data-bs-toggle="tab" data-bs-target="#nav-export" type="button" role="tab" aria-controls="nav-export" aria-selected="false">Export</button>
                   </div>
                   <h1 className="text-center">
                      {district && district.name} {text}
