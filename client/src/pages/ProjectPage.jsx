@@ -1,16 +1,18 @@
 import {useState, useEffect} from 'react'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import projectApi from '../api/modules/project.api';
 import Loader from '../components/Loader';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { serverUrl } from '../constants/serverUrl';
+import { back } from '../utils/back';
 
 const ProjectPage = () => {
    const {projectId} = useParams()
    const [project, setProject] = useState();
    const [loading, setLoading] = useState(false)
+   const navigate = useNavigate()
 
    const getProject = async () => {
       setLoading(true)

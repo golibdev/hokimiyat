@@ -162,6 +162,7 @@ const Add = ({ getAll, districtsOptions, internalBranchesOptions, branchesOption
       }
 
       if (err) {
+         console.log(err)
          toast.error(err.message);
       }
    };
