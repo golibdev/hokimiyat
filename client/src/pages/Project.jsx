@@ -310,11 +310,14 @@ const Update = ({ projectId, file }) => {
    const [name, setName] = useState('')
 
    const updateHandler = async () => {
-      
+
       const { response, err } = await projectApi.update({ projectId, name });
 
       if (response) {
          toast.success("Muvaffaqqiyatli yangilandi");
+         setTimeout(() => {
+            window.location.reload();
+         }, 500)
       }
 
       if (err) {
