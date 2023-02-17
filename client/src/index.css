@@ -90,7 +90,7 @@ html {
 }
 
 .main-btn {
-   position: absolute;
+   position: fixed;
    bottom: 20px;
    left: 30px;
    padding: 0 30px;
