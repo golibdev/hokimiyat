@@ -33,24 +33,23 @@ const ProjectPage = () => {
    }, [projectId])
 
    return (
-      <div className='container'>
-         <div className="row">
-            <div className="col-12" style={{
-                  border: '1px solid rgba(0, 0, 0, 0.3)',
-                  height: '750px',
-               }}>
-               <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-                  {loading ? <Loader/> : (
-                     <Viewer 
-                        fileUrl={project && project.file && `${serverUrl}${project.file}`}
-                     />
-                  )}
-               </Worker>
+      <div className='d-flex align-items-center justify-content-center' style={{ height: '95vh' }}>
+         <div className='container-fluid' style={{ width: '94%' }}>
+            <div className="row">
+               <div className="col-12" style={{ width: '100%' }}>
+                  <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+                     {loading ? <Loader/> : (
+                        <Viewer 
+                           fileUrl={project && project.file && `${serverUrl}${project.file}`}
+                        />
+                     )}
+                  </Worker>
+               </div>
             </div>
+            <a href="#" onClick={() => back(navigate)} className="main-btn btn-hover btn">
+               Ortga
+            </a>
          </div>
-         <a href="#" onClick={() => back(navigate)} className="main-btn btn-hover btn">
-            Ortga
-         </a>
       </div>
    )
 }

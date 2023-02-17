@@ -14,6 +14,7 @@ const BranchAndInternalBranch = () => {
 
       if (response) {
          setProjects(response.projects)
+         console.log(response.projects);
       }
 
       if (err) toast.warning(err.messge);
@@ -28,9 +29,10 @@ const BranchAndInternalBranch = () => {
          <h2 className='text-center fw-bold display-1 mb-3'>Loyihalar</h2>
          <div className="row g-4">
             {projects.map(item => (
-               <div className="col-12" data-aos="zoom-in" data-aos-duration="1500" key={item._id}>
-                  <Link to={`/project/${item._id}`} className='w-100 btn btn-hover btn-font'>
+               <div className="col-lg-10 offset-lg-1" data-aos="zoom-in" data-aos-duration="1500" key={item._id}>
+                  <Link to={`/project/${item._id}`} className='w-100 btn btn-hover btn-font d-flex align-items-center justify-content-center'>
                      {item.name}
+                     <span className='ms-3' style={{ fontSize: '30px' }}>({item.district.name})</span>
                   </Link>
                </div>
             ))}
