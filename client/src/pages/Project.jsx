@@ -86,6 +86,22 @@ const Project = () => {
       label: item.name
    }))
 
+   const deleteHandler = async (projectId) => {
+      const isClick = window.confirm("Rostdan ham o'chirmoqchimisz!");
+
+      if (isClick) {
+         const { response, err } = await projectApi.delete({ projectId });
+
+         if (response) {
+            toast.success("Muvaffaqqiyatli o'chirildi!")
+         }
+
+         if (err) {
+            toast.error(err)
+         }
+      }
+   }
+
    return (
       <div className="row mt-5">
          <div className="d-flex align-items-center justify-content-between">
@@ -114,6 +130,7 @@ const Project = () => {
                      <th>Soha</th>
                      <th>Yo'nalish</th>
                      <th>Yaratilgan vaqti</th>
+                     <th>O'chirish</th>
                   </tr>
                </thead>
                <tbody>
@@ -126,6 +143,13 @@ const Project = () => {
                         <td>{item?.internalBranch.name}</td>
                         <td>
                            {dayjs(item.createdAt).format("DD.MM.YYYY HH:mm")}
+                        </td>
+                        <td>
+                           <button onClick={() => {
+                              deleteHandler(item._id)
+                           }} className="btn btn-danger">
+                              <i className="bi bi-trash"></i>
+                           </button>
                         </td>
                      </tr>
                   ))}

@@ -132,3 +132,32 @@ exports.filterBranchInternalBranchAndDistrict = asyncHandler(async (req, res) =>
 
    res.status(200).json({ projects: filterData });
 })
+
+exports.delete = asyncHandler(async (req, res) => {
+   const projectId = req.params.projectId;
+
+   if (!checkMongooseId(projectId)) {
+      res.status(400)
+      throw new Error("ID mavjud emas");
+   }
+
+   const project = await Project.findById(projectId);
+
+   await District.findByIdAndUpdate(project.district, {
+      $pull: {
+         projects: projectId
+      }
+   }, {
+      new: true
+   })
+
+   await InternalBranch.findByIdAndUpdate(project.internalBranch, {
+      $pull: {
+         projects: projectId
+      }
+   })
+
+   await Project.findByIdAndRemove(projectId);
+
+   res.status(200).json({ message: "Muvaffaqqiyatli o'chirildi" })
+})

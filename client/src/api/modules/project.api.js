@@ -1,5 +1,6 @@
 import publicClient from '../client/public.client';
 import multipartPrivateClient from '../client/multipart.private.client'
+import privateClient from '../client/private.client';
 
 const projectEndpoints = {
    getAll: "project",
@@ -62,6 +63,15 @@ const projectApi = {
          )
 
          return { response }
+      } catch (err) {
+         return { err }
+      }
+   },
+   delete: async ({ projectId }) => {
+      try {
+         const response = await privateClient.delete(projectEndpoints.getOne(projectId))
+
+         return { response };
       } catch (err) {
          return { err }
       }
