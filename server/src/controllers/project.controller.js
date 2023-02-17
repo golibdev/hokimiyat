@@ -161,3 +161,18 @@ exports.delete = asyncHandler(async (req, res) => {
 
    res.status(200).json({ message: "Muvaffaqqiyatli o'chirildi" })
 })
+
+exports.updateName = asyncHandler(async(req, res) => {
+   const projectId = req.params.projectId;
+
+   if (!checkMongooseId(projectId)) {
+      res.status(4000)
+      throw new Error("ID mavjud emas");
+   }
+
+   const { name } = req.body
+
+   await Project.findByIdAndUpdate(projectId, { name: name }, { new: true });
+
+   res.status(200).json({ message: "Muvaffaqqiyatli o'zgartirildi" })
+})

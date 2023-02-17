@@ -1,6 +1,5 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const ngrok = require('ngrok')
 const path = require('path')
 const expressFileUpload = require('express-fileupload')
 const cors = require('cors');
@@ -26,14 +25,4 @@ app.use(errorHandler);
 app.listen(PORT, () => {
    connectedDB();
    console.log(`Server running on port: ${PORT}`);
-})
-
-ngrok.connect({
-   proto: 'http',
-   addr: process.env.PORT
-}, (err, url) => {
-   if (err) {
-      console.error('Error while connecting Ngrok',err);
-      return new Error('Ngrok Failed');
-   }
 })

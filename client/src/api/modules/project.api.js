@@ -75,6 +75,18 @@ const projectApi = {
       } catch (err) {
          return { err }
       }
+   },
+   update: async ({ projectId, name }) => {
+      try {
+         const response = await privateClient.put(
+            projectEndpoints.getOne(projectId),
+            { name }
+         )
+
+         return { response };
+      } catch (err) {
+         return { err }
+      }
    }
 }
 

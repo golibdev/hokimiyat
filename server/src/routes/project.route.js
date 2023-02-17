@@ -9,5 +9,6 @@ router.get('/filter-district/:districtId/:branchId/:internalBranchId', projectCo
 router.get('/:projectId', projectController.getOne)
 router.post('/create', verifyAdminToken, projectController.create);
 router.delete('/:projectId', verifyAdminToken, projectController.delete)
+router.put('/:projectId', verifyAdminToken, projectController.updateName)
 
 module.exports = router;

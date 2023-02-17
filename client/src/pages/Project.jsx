@@ -6,6 +6,10 @@ import branchApi from '../api/modules/branch.api';
 import districtApi from '../api/modules/district.api'
 import dayjs from "dayjs";
 import Select from 'react-select'
+import { Viewer, Worker } from '@react-pdf-viewer/core'
+import { serverUrl } from '../constants/serverUrl';
+import { back } from '../utils/back';
+import '@react-pdf-viewer/core/lib/styles/index.css';
 
 const Project = () => {
    const [data, setData] = useState([]);
@@ -132,6 +136,7 @@ const Project = () => {
                      <th>Yo'nalish</th>
                      <th>Yaratilgan vaqti</th>
                      <th>O'chirish</th>
+                     <th>Tahrirlash</th>
                   </tr>
                </thead>
                <tbody>
@@ -151,6 +156,16 @@ const Project = () => {
                            }} className="btn btn-danger">
                               <i className="bi bi-trash"></i>
                            </button>
+                        </td>
+                        <td>
+                           <button 
+                              className="btn btn-secondary" 
+                              data-bs-toggle="modal" 
+                              data-bs-target={`#update${item._id}`}
+                           >
+                              <i className="bi bi-pen"></i>
+                           </button>
+                           <Update projectId={item._id} file={item.file} />
                         </td>
                      </tr>
                   ))}
@@ -222,7 +237,7 @@ const Add = ({ getAll, districtsOptions, internalBranchesOptions, branchesOption
                         <input
                            type="text"
                            className="form-control"
-                           placeholder="Yo'nalish nomi"
+                           placeholder="Loyiha nomi"
                            value={name}
                            onChange={(e) => setName(e.target.value)}
                         />
@@ -289,5 +304,68 @@ const Add = ({ getAll, districtsOptions, internalBranchesOptions, branchesOption
       </div>
    );
 };
+
+const Update = ({ projectId, file }) => {
+   return (
+      <>
+         <div
+         className="modal fade"
+         id={`update${projectId}`}
+         tabIndex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true"
+      >
+            <div className="modal-dialog modal-xl">
+               <div className="modal-content">
+                  <div className="modal-header">
+                     <h1 className="modal-title fs-5" id="exampleModalLabel">
+                        Loyiha nomi tahrirlash
+                     </h1>
+                     <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                     ></button>
+                  </div>
+                  <div className="modal-body">
+                     <form encType="multipart/form-data">
+                        <div className="mb-3">
+                           <label htmlFor="name" className="form-label d-block text-start">
+                              Loyiha nomi
+                           </label>
+                           <input
+                              type="text"
+                              className="form-control"
+                              placeholder="Loyiha nomi"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
+                           />
+                        </div>
+
+                        <button className="mb-4 btn btn-success d-block">Tahrirlash</button>
+
+                        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+                           <Viewer 
+                              fileUrl={`${serverUrl}${file}`}
+                           />
+                        </Worker>
+                     </form>
+                  </div>
+                  <div className="modal-footer">
+                     <button
+                        type="button"
+                        className="btn btn-danger"
+                        data-bs-dismiss="modal"
+                     >
+                        Yopish
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </>
+   )
+}
 
 export default Project;
