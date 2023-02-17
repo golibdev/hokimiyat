@@ -306,6 +306,22 @@ const Add = ({ getAll, districtsOptions, internalBranchesOptions, branchesOption
 };
 
 const Update = ({ projectId, file }) => {
+
+   const [name, setName] = useState('')
+
+   const updateHandler = async () => {
+      
+      const { response, err } = await projectApi.update({ projectId, name });
+
+      if (response) {
+         toast.success("Muvaffaqqiyatli yangilandi");
+      }
+
+      if (err) {
+         toast.error(err)
+      }
+   }
+
    return (
       <>
          <div
@@ -329,7 +345,7 @@ const Update = ({ projectId, file }) => {
                      ></button>
                   </div>
                   <div className="modal-body">
-                     <form encType="multipart/form-data">
+                     <form encType="multipart/form-data" onSubmit={updateHandler}>
                         <div className="mb-3">
                            <label htmlFor="name" className="form-label d-block text-start">
                               Loyiha nomi
