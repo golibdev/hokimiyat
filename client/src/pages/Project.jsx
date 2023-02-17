@@ -309,7 +309,8 @@ const Update = ({ projectId, file }) => {
 
    const [name, setName] = useState('')
 
-   const updateHandler = async () => {
+   const updateHandler = async (e) => {
+      e.preventDefault()
 
       const { response, err } = await projectApi.update({ projectId, name });
 
