@@ -94,6 +94,7 @@ const Project = () => {
 
          if (response) {
             toast.success("Muvaffaqqiyatli o'chirildi!")
+            getAll();
          }
 
          if (err) {
