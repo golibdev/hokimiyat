@@ -130,3 +130,7 @@ html {
    margin: auto;
    height: auto !important;
 } */
+
+.rpv-core__viewer {
+   width: 90% !important;
+}

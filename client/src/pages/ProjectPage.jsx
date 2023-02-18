@@ -5,10 +5,17 @@ import { toast } from 'react-toastify';
 import projectApi from '../api/modules/project.api';
 import Loader from '../components/Loader';
 import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/thumbnail/lib/styles/index.css';
 import { serverUrl } from '../constants/serverUrl';
 import { back } from '../utils/back';
+import { thumbnailPlugin } from '@react-pdf-viewer/thumbnail';
 
 const ProjectPage = () => {
+   const thumbnailPluginInstance = thumbnailPlugin({
+      thumbnailWidth: 150,
+   });
+   
+   const { Thumbnails } = thumbnailPluginInstance;   
    const {projectId} = useParams()
    const [project, setProject] = useState();
    const [loading, setLoading] = useState(false)
@@ -34,12 +41,12 @@ const ProjectPage = () => {
 
    return (
       <div className='d-flex align-items-center justify-content-center' style={{ height: '95vh' }}>
-         <div className='container-fluid' style={{ width: '94%' }}>
+         <div className='container-fluid' style={{ width: '80%' }}>
             <div className="row">
-               <div className="col-12" style={{ width: '100%' }}>
+               <div className="col-12 d-flex align-items-center justify-content-center">
                   <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
                      {loading ? <Loader/> : (
-                        <Viewer 
+                        <Viewer
                            fileUrl={project && project.file && `${serverUrl}${project.file}`}
                         />
                      )}

@@ -28,7 +28,7 @@ const ProjectBranchAnd = () => {
          <h2 className='text-center fw-bold display-1 mb-3'>Loyihalar</h2>
          <div className="row g-4">
             {projects.map(item => (
-               <div data-aos="zoom-in" data-aos-duration="1500" className="col-12" key={item._id}>
+               <div data-aos="zoom-in" data-aos-duration="1500" className="col-lg-10 offset-lg-1" key={item._id}>
                   <Link to={`/project/${item._id}`} className='w-100 btn btn-hover btn-font'>
                      {item.name}
                   </Link>
