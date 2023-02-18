@@ -32,7 +32,6 @@ const BranchAndInternalBranch = () => {
                <div className="col-lg-10 offset-lg-1" data-aos="zoom-in" data-aos-duration="1500" key={item._id}>
                   <Link to={`/project/${item._id}`} className='w-100 btn btn-hover btn-font d-flex align-items-center justify-content-center'>
                      {item.name}
-                     <span className='ms-3' style={{ fontSize: '30px' }}>({item.district.name})</span>
                   </Link>
                </div>
             ))}

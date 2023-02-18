@@ -14,7 +14,7 @@ const Category = () => {
          <div style={{height: '60vh'}} className="d-flex align-items-center justify-content-center">
          <div className="container text-center">
             <Link data-aos="zoom-in" data-aos-duration="1500" style={{ fontSize: '50px'}} to="/districts" id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold me-5">
-               <span>Tumanlar</span>
+               <span>Hududlar</span>
             </Link>
 
             <Link data-aos="zoom-in" data-aos-duration="1500" style={{ fontSize: '50px'}} to="/branches" id="btn-hover" className="btn-hover btn btn-lg text-uppercase fw-bold">

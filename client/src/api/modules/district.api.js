@@ -41,6 +41,18 @@ const districtApi = {
       } catch (err) {
          return { err }
       }
+   },
+   update: async (districtId, params) => {
+      try {
+         const response = await multipartPrivateClient.put(
+            districtEndpoints.getOne(districtId),
+            params
+         )
+
+         return { response }
+      } catch (err) {
+         return { err }
+      }
    }
 }
 
